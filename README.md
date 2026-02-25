@@ -3,7 +3,7 @@
 Python code to invoke google vms by pushing make_mycosnp_script sample scripts to google vms running a docker image tleppertwood/pathogentotree.<br/>
 The docker image tleppertwood/pathogentotree processes sra sample data from nih.<br/>
 The docker image compares sample data to reference sequence and returns comparison edits in the form of .g.vcf.gz and .maple files.<br/>
-See [Docker container pathogentotree](https://github.com/tleppertbio/pathogentotree/blobl/main/README.md) the docker container that performs the comparisons.<br/>
+See [Docker container pathogentotree](https://github.com/tleppertbio/pathogentotree/blob/main/README.md) the docker container that performs the comparisons.<br/>
 
 ---
 
