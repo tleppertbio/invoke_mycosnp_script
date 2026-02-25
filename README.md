@@ -14,7 +14,7 @@ See [Docker container pathogentotree](https://github.com/tleppertbio/pathogentot
 3) [google buckets](https://github.com/tleppertbio/pathogentotree/blob/main/README.md#how-to-create-a-bucket-identify-your-google-region-and-viewing-pricing-tablessizes-for-vms), creating a bucket to house your output data until you can retrieve it to your local machine.
 4) [reference data](https://github.com/tleppertbio/pathogentotree/blob/main/README.md#create-and-execute-ref-bucket-setupscript-file), reference files prepped for analysis using nucmer, bedtools maskfasta, samtools faidx, picard.jar and bwa, which reside in the google bucket and vms during analysis.
 5) [directory structure](https://github.com/tleppertbio/pathogentotree/blob/main/README.md#directory-structure-on-your-local-machine), the directory structure that is created on your local machine, pathogentotree's expected structure.
-6) [after this program](https://github.com/tleppertbio/pathogentotree/blobl/main/README.md#execute-scripts-to-invoke-docker-image-on-google-vms) how to execute the script created by this program, where it is located and what is it doing.
+6) [after this program](https://github.com/tleppertbio/pathogentotree/blob/main/README.md#execute-scripts-to-invoke-docker-image-on-google-vms) how to execute the script created by this program, where it is located and what is it doing.
 7) [complete pathogentotree package](https://github.com/tleppertbio/pathogentotree/blob/main/README.md) full documentation to the entire process, setting up google cloud vms to run pathogentotree docker container to analyze nih sra datasets to find reference compared sequence edits.
 
 ### Running invoke_mycosnp_script.py
