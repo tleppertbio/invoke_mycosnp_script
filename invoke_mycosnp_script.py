@@ -127,33 +127,33 @@ for line in fin:
         if (xsmall_size == 1) and (xsmall_count < xlow_max):
             xsmall_count += 1
             foutxlow.write('gcloud compute instances create-with-container ' + lower_srr_number + '-pathogen-vm --preemptible --zone=us-west1-a --machine-type=e2-highmem-4 --boot-disk-size=50 --container-image="us-west1-docker.pkg.dev/c-auris-cdc/pathogen-repo/pathogentotree" --metadata-from-file user-data=' + srr_number + '-startup.script --service-account=250856040547-compute@developer.gserviceaccount.com --scopes=https://www.googleapis.com/auth/devstorage.read_write\n')
-            foutxlow.write("mv " + current_directory + "/vm-scripts/" + filein + " " + current_directory + "/vm-running/xlow/" + filein + "\n")
+            foutxlow.write("mv " + str(current_directory) + "/vm-scripts/" + filein + " " + str(current_directory) + "/vm-running/xlow/" + filein + "\n")
         # 1000 of these
         if (small_size == 1) and (small_count < low_max):
             small_count += 1
 #            foutlow.write('gcloud compute instances create-with-container ' + lower_srr_number + '-pathogen-vm --preemptible --zone=us-west1-a --machine-type=e2-highmem-16 --boot-disk-size=100 --container-image="us-west1-docker.pkg.dev/c-auris-cdc/pathogen-repo/pathogentotree" --metadata-from-file user-data=' + srr_number + '-startup.script --service-account=250856040547-compute@developer.gserviceaccount.com --scopes=https://www.googleapis.com/auth/devstorage.read_write\n')
             foutlow.write('gcloud compute instances create-with-container ' + lower_srr_number + '-pathogen-vm --preemptible --zone=us-west1-a --machine-type=e2-highmem-4 --boot-disk-size=50 --container-image="us-west1-docker.pkg.dev/c-auris-cdc/pathogen-repo/pathogentotree" --metadata-from-file user-data=' + srr_number + '-startup.script --service-account=250856040547-compute@developer.gserviceaccount.com --scopes=https://www.googleapis.com/auth/devstorage.read_write\n')
-            foutlow.write("mv " + current_directory + "/vm-scripts/" + filein + " " + current_directory + "/vm-running/low/" + filein + "\n")
+            foutlow.write("mv " + str(current_directory) + "/vm-scripts/" + filein + " " + str(current_directory) + "/vm-running/low/" + filein + "\n")
         # 1000 of these
         if (medium_size == 1) and (medium_count < medium_max):
             medium_count += 1
 #            foutmed.write('gcloud compute instances create-with-container ' + lower_srr_number + '-pathogen-vm1 --preemptible --zone=us-west1-a --machine-type=n1-highmem-32 --boot-disk-size=300 --container-image="us-west1-docker.pkg.dev/c-auris-cdc/pathogen-repo/pathogentotree" --metadata-from-file user-data=' + srr_number + '-startup-vm1.script --service-account=250856040547-compute@developer.gserviceaccount.com --scopes=https://www.googleapis.com/auth/devstorage.read_write\n')
             foutmed.write('gcloud compute instances create-with-container ' + lower_srr_number + '-pathogen-vm --preemptible --zone=us-west1-a --machine-type=e2-highmem-4 --boot-disk-size=50 --container-image="us-west1-docker.pkg.dev/c-auris-cdc/pathogen-repo/pathogentotree" --metadata-from-file user-data=' + srr_number + '-startup.script --service-account=250856040547-compute@developer.gserviceaccount.com --scopes=https://www.googleapis.com/auth/devstorage.read_write\n')
-            foutmed.write("mv " + current_directory + "/vm-scripts/" + filein + " " + current_directory + "/vm-running/medium/" + filein + "\n")
+            foutmed.write("mv " + str(current_directory) + "/vm-scripts/" + filein + " " + str(current_directory) + "/vm-running/medium/" + filein + "\n")
         # 10 of these
         if (large_size == 1) and (large_count < large_max):
             large_count += 1
 #            foutlarge.write('gcloud compute instances create-with-container ' + lower_srr_number + '-pathogen-vm1 --preemptible --zone=us-west1-c --machine-type=n2d-highmem-48 --boot-disk-size=500 --container-image="us-west1-docker.pkg.dev/c-auris-cdc/pathogen-repo/pathogentotree" --metadata-from-file user-data=' + srr_number + '-startup-vm1.script --service-account=250856040547-compute@developer.gserviceaccount.com --scopes=https://www.googleapis.com/auth/devstorage.read_write\n')
             foutlarge.write('gcloud compute instances create-with-container ' + lower_srr_number + '-pathogen-vm --preemptible --zone=us-west1-a --machine-type=n4-highmem-8 --boot-disk-size=200 --container-image="us-west1-docker.pkg.dev/c-auris-cdc/pathogen-repo/pathogentotree" --metadata-from-file user-data=' + srr_number + '-startup.script --service-account=250856040547-compute@developer.gserviceaccount.com --scopes=https://www.googleapis.com/auth/devstorage.read_write\n')
-            foutlarge.write("mv " + current_directory + "/vm-scripts/" + filein + " " + current_directory + "/vm-running/large/" + filein + "\n")
+            foutlarge.write("mv " + str(current_directory) + "/vm-scripts/" + filein + " " + str(current_directory) + "/vm-running/large/" + filein + "\n")
         if (xlarge_size == 1) and (xlarge_count < xlarge_max):
             xlarge_count += 1
             foutxlarge.write('gcloud compute instances create-with-container ' + lower_srr_number + '-pathogen-vm --preemptible --zone=us-west1-a --machine-type=n4-highmem-8 --boot-disk-size=200 --container-image="us-west1-docker.pkg.dev/c-auris-cdc/pathogen-repo/pathogentotree" --metadata-from-file user-data=' + srr_number + '-startup.script --service-account=250856040547-compute@developer.gserviceaccount.com --scopes=https://www.googleapis.com/auth/devstorage.read_write\n')
-            foutxlarge.write("mv " + current_directory + "/vm-scripts/" + filein + " " + current_directory + "/vm-running/xlarge/" + filein + "\n")
+            foutxlarge.write("mv " + str(current_directory) + "/vm-scripts/" + filein + " " + str(current_directory) + "/vm-running/xlarge/" + filein + "\n")
         if (xxlarge_size == 1) and (xxlarge_count < xxlarge_max):
             xxlarge_count += 1
             foutxxlarge.write('gcloud compute instances create-with-container ' + lower_srr_number + '-pathogen-vm --preemptible --zone=us-west1-a --machine-type=e2-highmem-16 --boot-disk-size=500 --container-image="us-west1-docker.pkg.dev/c-auris-cdc/pathogen-repo/pathogentotree" --metadata-from-file user-data=' + srr_number + '-startup.script --service-account=250856040547-compute@developer.gserviceaccount.com --scopes=https://www.googleapis.com/auth/devstorage.read_write\n')
-            foutxxlarge.write("mv " + current_directory + "/vm-scripts/" + filein + " " + current_directory + "/vm-running/xxlarge/" + filein + "\n")
+            foutxxlarge.write("mv " + str(current_directory) + "/vm-scripts/" + filein + " " + str(current_directory) + "/vm-running/xxlarge/" + filein + "\n")
 
 # close files            
 fin.close()
