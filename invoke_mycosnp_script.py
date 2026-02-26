@@ -158,6 +158,11 @@ for line in fin:
 # close files            
 fin.close()
 
+# if /vm-scripts does not exist, create it                                                                     
+runpath=f"{current_directory}/vm-scripts"
+path_exists=Path(runpath)
+path_exists.mkdir(parents=True,exist_ok=True)
+
 # File cleanup and chmod
 if xlow_max > 0:
     foutxlow.close()
