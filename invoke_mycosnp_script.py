@@ -43,12 +43,42 @@ current_directory = Path.cwd()
 # Determine the number of each size file that the user wishes to queue
 # Note that the suggested numbers are somewhat arbitrary, sometimes there are no vm's available
 # Watch the queuing process to see that machines were available to accept the queuing.
-xlow_max = int(input("Enter the number of xlow (<1GB) sra files to queue (1000): "))
-low_max = int(input("Enter the number of low (1-<2GB) sra files to queue (1000): "))
-medium_max = int(input("Enter the number of medium (2-<4GB) sra files to queue (was 50-now 1000): "))
-large_max = int(input("Enter the number of large (>=4GB-10GB) sra files to queue (was 10-now 1000): "))
-xlarge_max = int(input("Enter the number of xlarge (>=10-15GB) sra files to queue (was 10-now 100): "))
-xxlarge_max = int(input("Enter the number of xxlarge (>=15GB) sra files to queue (10): "))
+
+# Get the counts of the number of files available now
+cmd = """awk '$1 < 1000000000' sra_now.list | wc -l"""
+result = subprocess.run(cmd, shell=True, capture_output=True, text=True)
+xlow = int(result.stdout.strip())
+cmd = """awk '$1 >= 1000000000 && $1 < 2000000000' sra_now.list | wc -l"""
+result = subprocess.run(cmd, shell=True, capture_output=True, text=True)
+low = int(result.stdout.strip())
+cmd = """awk '$1 >= 2000000000 && $1 < 4000000000' sra_now.list | wc -l"""
+result = subprocess.run(cmd, shell=True, capture_output=True, text=True)
+medium = int(result.stdout.strip())
+cmd = """awk '$1 >= 4000000000 && $1 < 10000000000' sra_now.list | wc -l"""
+result = subprocess.run(cmd, shell=True, capture_output=True, text=True)
+large = int(result.stdout.strip())
+cmd = """awk '$1 >= 10000000000 && $1 < 15000000000' sra_now.list | wc -l"""
+result = subprocess.run(cmd, shell=True, capture_output=True, text=True)
+xlarge = int(result.stdout.strip())
+cmd = """awk '$1 >= 15000000000' sra_now.list | wc -l"""
+result = subprocess.run(cmd, shell=True, capture_output=True, text=True)
+xxlarge = int(result.stdout.strip())
+
+
+print("The max number is the number of samples you can queue now.\n")
+print("The queue order is as listed in the sra_now.list file (by size category).\n")
+print("The number of samples available for queuing at this size range is also listed.\n")
+print("The samples available to queue (by size) are determined by the sra_now.list file and by make_mycosnp_script.py output.\n")
+print("If the number available to queue > the limit, you may start a new queue at a different time.\n")
+print("e.g. suggested wait time - several hours from now for small runs, a couple of days for xlarge runs.\n")
+
+low_max = int(input("Enter the number of xlow (<1GB) sra files to queue (1000 max, " + str(xlow) + " avail): "))
+low_max = int(input("Enter the number of low (1-<2GB) sra files to queue (1000 max, " + str(low) + " avail): "))
+medium_max = int(input("Enter the number of medium (2-<4GB) sra files to queue (1000 max, " + str(medium) + " avail): "))
+large_max = int(input("Enter the number of large (>=4GB-10GB) sra files to queue (1000 max, " + str(large) + " avail): "))
+xlarge_max = int(input("Enter the number of xlarge (>=10-15GB) sra files to queue (100 max, " + str(xlarge) + " avail): "))
+xxlarge_max = int(input("Enter the number of xxlarge (>=15GB) sra files to queue (10 max, " + str(xxlarge) + " avail): "))
+
 
 # open input file and output files
 fin = open("sra_now.list", 'r')
